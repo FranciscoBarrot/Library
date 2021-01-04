@@ -1,7 +1,7 @@
-let myLibrary =
+let myLibrary = []
 
 
-
+/* CONSTRUCTOR */
 function Book (title, author,pages, read){
     this.title = title
     this.author = author
@@ -27,3 +27,10 @@ Book.prototype.getPages = function(){
 const book1 = new Book("Brave New World" , "Aldous Huxley" , 200 , false)
 
 console.log(book1) 
+
+
+/* FUNCTIONS */
+function addBookToLibrary (){
+    const oneBook = new Book()
+    myLibrary.push("hol<")
+}
