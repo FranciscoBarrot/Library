@@ -1,7 +1,10 @@
 let myLibrary = []
-const addBtn = document.querySelector('.addButtonBtn')
-addBtn.addEventListener('click', (e) => {
-  document.querySelector('.nav-main').classList.toggle('show')
+const addBtn = document.querySelector('.addBookBtn')
+const form = document.createElement('.div')
+form.classList.add('show')
+
+addBtn.addEventListener('click', () => {
+  document.querySelector('.nav-main').appendChild(form)
   addBtn.classList.toggle('default')
   addBtn.classList.toggle('clicked')
 })
