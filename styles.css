@@ -35,6 +35,9 @@ body {
   right: 0px;
   outline: none;
 }
+.addBookBtn i {
+  transition: transform 0.5s ease-in-out;
+}
 .addBookBtn:active {
   right: 2px;
 }
@@ -64,15 +67,28 @@ body {
 }
 .clicked i {
   transform: rotate(45deg);
-  transition: transform 1, 5 ease-in-out;
 }
 /* CARDS DISPLAYER */
+.display-container {
+  display: flex;
+  flex-direction: column;
+}
 
 /* CARDS */
 .card {
-  width: 100px;
-  height: 200px;
+  margin-left: 60px;
+  display: flex;
+  width: 1000px;
+  height: 70px;
   background-color: #010002;
+  font-size: 24px;
+  color: white;
+  background-color: green;
+  margin-top: 30px;
+}
+
+.card h2 {
+  padding-left: 20px;
 }
 
 /* FORM */
@@ -90,9 +106,11 @@ body {
   text-align: center;
   font-size: 40px;
   padding: 20px 0;
+  transform: translateX(250px);
+  transition: transform 0.5s ease-in-out;
 }
 .show {
-  display: block;
+  transform: translateX(0px);
 }
 .popup input {
   margin: 22px 0;
