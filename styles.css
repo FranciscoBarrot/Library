@@ -77,14 +77,34 @@ body {
 
 /* FORM */
 .popup {
-  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 250px;
   position: absolute;
   top: 40px;
   right: 0px;
   height: 600px;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.8;
+  text-align: center;
+  font-size: 40px;
+  padding: 20px 0;
 }
 .show {
+  display: block;
+}
+.popup input {
+  margin: 22px 0;
+}
+.popup input[type='text'],
+.popup input[type='number'],
+.popup input[type='submit'] {
+  width: 90%;
+  height: 40px;
+  font-size: 35px;
+}
+#read {
+  width: 35px;
+  height: 35px;
 }

@@ -1,13 +1,14 @@
 let myLibrary = []
 const addBtn = document.querySelector('.addBookBtn')
-const form = document.createElement('.div')
-form.classList.add('show')
+const submitBtn = document.querySelector('#submit-btn')
 
 addBtn.addEventListener('click', () => {
-  document.querySelector('.nav-main').appendChild(form)
+  document.querySelector('.popup').classList.toggle('show')
   addBtn.classList.toggle('default')
   addBtn.classList.toggle('clicked')
 })
+
+submitBtn.addEventListener('click', (e) => {})
 
 /* CONSTRUCTOR */
 function Book(title, author, pages, read) {
