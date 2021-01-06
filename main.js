@@ -1,15 +1,29 @@
 let myLibrary = []
 const addBtn = document.querySelector('.addBookBtn')
-const submitBtn = document.querySelector('#submit-btn')
 const cardsContainer = document.querySelector('.display-container')
 
-addBtn.addEventListener('click', () => {
+addBtn.addEventListener('click', openAndClose)
+
+function openAndClose() {
   document.querySelector('.popup').classList.toggle('show')
   addBtn.classList.toggle('default')
   addBtn.classList.toggle('clicked')
-})
+}
 
-submitBtn.addEventListener('click', (e) => {})
+/* FORM  */
+const form = document.getElementById('form')
+const title = document.getElementById('title')
+const author = document.getElementById('author')
+const pages = document.getElementById('pages')
+const read = document.getElementById('read')
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  addBookToLibrary(title.value, author.value, pages.value, read.value)
+  displayCards()
+  openAndClose()
+  form.reset()
+})
 
 /* CONSTRUCTOR */
 function Book(title, author, pages, read) {
@@ -39,41 +53,31 @@ Book.prototype.info = function () {
 }
 
 /* FUNCTIONS */
-function addCliked(e) {}
-
 function addBookToLibrary(title, author, pages, readed) {
   const oneBook = new Book(title, author, pages, readed)
   myLibrary.push(oneBook)
-}
-
-function display() {
-  myLibrary.forEach()
 }
 
 /* displays */
 function displayCards() {
   myLibrary.forEach((book) => {
     const card = document.createElement('div')
-    const title = document.createElement('h2')
-    const author = document.createElement('h2')
-    const pages = document.createElement('h2')
-    const readed = document.createElement('h2')
+    const cardTitle = document.createElement('h2')
+    const cardAuthor = document.createElement('h2')
+    const cardPages = document.createElement('h2')
+    const cardReaded = document.createElement('h2')
 
-    title.textContent = book.title
-    author.textContent = book.author
-    pages.textContent = book.pages
-    readed.textContent = book.read
+    cardTitle.textContent = book.title
+    cardAuthor.textContent = book.author
+    cardPages.textContent = book.pages
+    cardReaded.textContent = book.read
 
-    card.appendChild(title)
-    card.appendChild(author)
-    card.appendChild(pages)
-    card.appendChild(readed)
+    card.appendChild(cardTitle)
+    card.appendChild(cardAuthor)
+    card.appendChild(cardPages)
+    card.appendChild(cardReaded)
 
     card.classList.add('card')
     cardsContainer.appendChild(card)
   })
 }
-addBookToLibrary('hola', 'german', 1000, true)
-addBookToLibrary('hola', 'german', 1000, true)
-
-displayCards()

@@ -106,7 +106,7 @@ body {
   text-align: center;
   font-size: 40px;
   padding: 20px 0;
-  transform: translateX(250px);
+  transform: translateY(-640px);
   transition: transform 0.5s ease-in-out;
 }
 .show {
