@@ -60,6 +60,7 @@ function addBookToLibrary(title, author, pages, readed) {
 
 /* displays */
 function displayCards() {
+  cardsContainer.textContent = ''
   myLibrary.forEach((book) => {
     const card = document.createElement('div')
     const cardTitle = document.createElement('h2')
@@ -76,6 +77,21 @@ function displayCards() {
     card.appendChild(cardAuthor)
     card.appendChild(cardPages)
     card.appendChild(cardReaded)
+
+    /* buttons */
+    const deleteBtn = document.createElement('div')
+    const changeBtn = document.createElement('div')
+
+    deleteBtn.classList.add('deleteBtn')
+    changeBtn.classList.add('changeBtn')
+
+    deleteBtn.addEventListener('click', () => {
+      myLibrary.splice(myLibrary.indexOf())
+      displayCards()
+    })
+
+    card.appendChild(deleteBtn)
+    card.appendChild(changeBtn)
 
     card.classList.add('card')
     cardsContainer.appendChild(card)
