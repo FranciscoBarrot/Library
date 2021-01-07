@@ -1,6 +1,6 @@
 let myLibrary = []
 const addBtn = document.querySelector('.addBookBtn')
-const cardsContainer = document.querySelector('.display-container')
+const cardsContainer = document.querySelector('.cards-container')
 
 addBtn.addEventListener('click', openAndClose)
 
@@ -21,6 +21,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault()
   addBookToLibrary(title.value, author.value, pages.value, read.value)
   displayCards()
+  document.querySelector('.table').classList.remove('last-card')
   openAndClose()
   form.reset()
 })
@@ -61,7 +62,7 @@ function addBookToLibrary(title, author, pages, readed) {
 /* displays */
 function displayCards() {
   cardsContainer.textContent = ''
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     const card = document.createElement('div')
     const cardTitle = document.createElement('h2')
     const cardAuthor = document.createElement('h2')
@@ -85,15 +86,27 @@ function displayCards() {
     deleteBtn.classList.add('deleteBtn')
     changeBtn.classList.add('changeBtn')
 
-    deleteBtn.addEventListener('click', () => {
-      myLibrary.splice(myLibrary.indexOf())
+    deleteBtn.addEventListener('click', (e) => {
+      myLibrary.splice(e.target.parentNode.dataset.index, 1)
       displayCards()
     })
+    deleteBtn.textContent = 'Remove'
 
-    card.appendChild(deleteBtn)
+    changeBtn.addEventListener('click', (e) => {
+      const currrentBook = myLibrary[e.target.parentNode.dataset.index]
+      title.value = currrentBook.title
+      openAndClose()
+    })
+    changeBtn.textContent = 'Change'
+
     card.appendChild(changeBtn)
+    card.appendChild(deleteBtn)
 
+    card.dataset.index = index
     card.classList.add('card')
+    if (index === myLibrary.length - 1) {
+      card.classList.add('last-card')
+    }
     cardsContainer.appendChild(card)
   })
 }

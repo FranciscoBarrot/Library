@@ -69,7 +69,8 @@ body {
   transform: rotate(45deg);
 }
 /* CARDS DISPLAYER */
-.display-container {
+.display-container,
+.cards-container {
   display: flex;
   flex-direction: column;
 }
@@ -83,9 +84,16 @@ body {
   background-color: #000000;
   font-size: 24px;
   color: white;
-  margin-top: 30px;
   border: #ffab23 solid 2px;
-  border-radius: 20px;
+}
+.last-card {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.table {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin-top: 30px;
 }
 
 .card h2 {
