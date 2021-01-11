@@ -10,7 +10,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- BOOK JS -->
+    <script defer src="js/book.js"></script>
   </head>
   <body>
     <div class="container">
@@ -35,21 +37,20 @@
       </nav>
 
       <main>
-        <div class="display-container">
-          <div class="card table last-card">
-            <h2>Title</h2>
-            <h2>Author</h2>
-            <h2>Pages</h2>
-            <h2>Read?</h2>
-          </div>
-          <div class="cards-container"></div>
-        </div>
+        <table class="display-table">
+          <tr class="categories">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Status</th>
+          </tr>
+        </table>
       </main>
 
       <footer></footer>
     </div>
 
     <!-- MAIN JS -->
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

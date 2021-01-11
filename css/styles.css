@@ -68,6 +68,7 @@ body {
 .clicked i {
   transform: rotate(45deg);
 }
+
 /* CARDS DISPLAYER */
 .display-container,
 .cards-container {
@@ -76,15 +77,17 @@ body {
 }
 
 /* CARDS */
-.card {
+/* .card {
   margin-left: 60px;
   display: flex;
   width: 1000px;
   height: 70px;
   background-color: #000000;
-  font-size: 24px;
+  font-size: 15px;
   color: white;
   border: #ffab23 solid 2px;
+  justify-content: space-between;
+  align-items: center;
 }
 .last-card {
   border-bottom-right-radius: 20px;
@@ -94,10 +97,44 @@ body {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   margin-top: 30px;
+  padding-right: 90px;
+  font-size: 20px;
 }
 
 .card h2 {
   margin: 10px 20px;
+} */
+
+.delete-btn {
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border: 1px solid #d02718;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+/* TABLE */
+.display-table {
+  margin-left: 60px;
+  margin-top: 30px;
+  padding-right: 30px;
+  font-size: 15px;
+  background-color: #000000;
+  border: #ffab23 solid 2px;
+  color: #fff;
+  border-radius: 20px;
+  width: 1000px;
+}
+.categories {
+  font-size: 25px;
+}
+.display-table tr {
+  height: 70px;
 }
 
 /* FORM */
