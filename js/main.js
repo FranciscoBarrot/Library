@@ -64,57 +64,54 @@ function displayCards() {
     let cardAuthor
     let cardPages
     let cardReaded
+    let deleteBtn
 
     if (index === 0) {
       cardTitle = document.createElement('th')
       cardAuthor = document.createElement('th')
       cardPages = document.createElement('th')
       cardReaded = document.createElement('th')
+      deleteBtn = document.createElement('th')
       card.classList.add('categories')
     } else {
       cardTitle = document.createElement('td')
       cardAuthor = document.createElement('td')
       cardPages = document.createElement('td')
       cardReaded = document.createElement('td')
+      deleteBtn = document.createElement('td')
 
+      card.classList.add('tableElement')
       /* buttons */
-      const deleteBtn = document.createElement('div')
-      const changeBtn = document.createElement('div')
+      cardReaded.classList.add('change-btn')
 
       deleteBtn.classList.add('delete-btn')
-      changeBtn.classList.add('change-btn')
-
+      deleteBtn.innerHTML = '<i class="fas fa-times"></i>'
       deleteBtn.addEventListener('click', (e) => {
         myLibrary.splice(e.target.parentNode.dataset.index, 1)
         displayCards()
       })
-      deleteBtn.innerHTML = '<i class="fas fa-times"></i>'
-
-      changeBtn.addEventListener('click', (e) => {
+      cardReaded.addEventListener('click', (e) => {
         myLibrary[e.target.parentNode.dataset.index].change()
         displayCards()
       })
-      changeBtn.textContent = 'Change'
-
-      card.appendChild(changeBtn)
-      card.appendChild(deleteBtn)
     }
 
     cardTitle.textContent = book.title
     cardAuthor.textContent = book.author
     cardPages.textContent = book.pages
-    cardReaded.textContent = book.read
+    if (book.read) {
+      cardReaded.textContent = 'read'
+    } else {
+      cardReaded.textContent = 'not read'
+    }
 
     card.appendChild(cardTitle)
     card.appendChild(cardAuthor)
     card.appendChild(cardPages)
     card.appendChild(cardReaded)
+    card.appendChild(deleteBtn)
 
     card.dataset.index = index
-    /* card.classList.add('card') 
-    if (index === myLibrary.length - 1) {
-      card.classList.add('last-card')
-    }*/
     cardsContainer.appendChild(card)
   })
 }
